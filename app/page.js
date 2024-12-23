@@ -1,0 +1,1247 @@
+'use client'
+import { useState, useEffect } from "react";
+
+const countries = [
+  {
+    "name": "Antarctica",
+    "size": 14200000
+  },
+  {
+    "name": "Canada",
+    "size": 9984670
+  },
+  {
+    "name": "United States",
+    "size": 9833517
+  },
+  {
+    "name": "China",
+    "size": 9596960
+  },
+  {
+    "name": "Brazil",
+    "size": 8515767
+  },
+  {
+    "name": "Australia",
+    "size": 7741220
+  },
+  {
+    "name": "Argentina",
+    "size": 3745997
+  },
+  {
+    "name": "India",
+    "size": 3287263
+  },
+  {
+    "name": "Kazakhstan",
+    "size": 2724900
+  },
+  {
+    "name": "Algeria",
+    "size": 2381740
+  },
+  {
+    "name": "Democratic Republic of the Congo",
+    "size": 2344858
+  },
+  {
+    "name": "Denmark",
+    "size": 2210573
+  },
+  {
+    "name": "Greenland (Denmark)",
+    "size": 2166086
+  },
+  {
+    "name": "Saudi Arabia",
+    "size": 2149690
+  },
+  {
+    "name": "Chile",
+    "size": 2006106
+  },
+  {
+    "name": "Mexico",
+    "size": 1964375
+  },
+  {
+    "name": "Indonesia",
+    "size": 1904569
+  },
+  {
+    "name": "Sudan",
+    "size": 1861484
+  },
+  {
+    "name": "Libya",
+    "size": 1759540
+  },
+  {
+    "name": "Iran",
+    "size": 1648195
+  },
+  {
+    "name": "Marie Byrd Land (terra nullius)",
+    "size": 1600000
+  },
+  {
+    "name": "Mongolia",
+    "size": 1564110
+  },
+  {
+    "name": "Peru",
+    "size": 1285216
+  },
+  {
+    "name": "Chad",
+    "size": 1284000
+  },
+  {
+    "name": "Niger",
+    "size": 1267000
+  },
+  {
+    "name": "Angola",
+    "size": 1246700
+  },
+  {
+    "name": "Mali",
+    "size": 1240192
+  },
+  {
+    "name": "South Africa",
+    "size": 1221037
+  },
+  {
+    "name": "Colombia",
+    "size": 1141748
+  },
+  {
+    "name": "France",
+    "size": 1106756
+  },
+  {
+    "name": "Ethiopia",
+    "size": 1104300
+  },
+  {
+    "name": "Bolivia",
+    "size": 1098581
+  },
+  {
+    "name": "Mauritania",
+    "size": 1030700
+  },
+  {
+    "name": "Egypt",
+    "size": 1002450
+  },
+  {
+    "name": "Tanzania",
+    "size": 947300
+  },
+  {
+    "name": "Nigeria",
+    "size": 923768
+  },
+  {
+    "name": "Venezuela",
+    "size": 912050
+  },
+  {
+    "name": "Pakistan",
+    "size": 907132
+  },
+  {
+    "name": "Namibia",
+    "size": 824292
+  },
+  {
+    "name": "Mozambique",
+    "size": 799380
+  },
+  {
+    "name": "Turkey",
+    "size": 783562
+  },
+  {
+    "name": "Zambia",
+    "size": 752612
+  },
+  {
+    "name": "Myanmar",
+    "size": 676578
+  },
+  {
+    "name": "Afghanistan",
+    "size": 652230
+  },
+  {
+    "name": "South Sudan",
+    "size": 644239
+  },
+  {
+    "name": "Somalia",
+    "size": 637657
+  },
+  {
+    "name": "Central African Republic",
+    "size": 622984
+  },
+  {
+    "name": "Ukraine",
+    "size": 603500
+  },
+  {
+    "name": "Madagascar",
+    "size": 587041
+  },
+  {
+    "name": "Botswana",
+    "size": 581730
+  },
+  {
+    "name": "Kenya",
+    "size": 580367
+  },
+  {
+    "name": "France (metropolitan)",
+    "size": 551500
+  },
+  {
+    "name": "Yemen",
+    "size": 527968
+  },
+  {
+    "name": "Thailand",
+    "size": 513120
+  },
+  {
+    "name": "Spain",
+    "size": 505370
+  },
+  {
+    "name": "Turkmenistan",
+    "size": 488100
+  },
+  {
+    "name": "Cameroon",
+    "size": 475442
+  },
+  {
+    "name": "Papua New Guinea",
+    "size": 462840
+  },
+  {
+    "name": "Sweden",
+    "size": 450295
+  },
+  {
+    "name": "Uzbekistan",
+    "size": 447400
+  },
+  {
+    "name": "Morocco",
+    "size": 446550
+  },
+  {
+    "name": "French Southern and Antarctic Lands (France)",
+    "size": 439781
+  },
+  {
+    "name": "Iraq",
+    "size": 438317
+  },
+  {
+    "name": "Paraguay",
+    "size": 406752
+  },
+  {
+    "name": "Zimbabwe",
+    "size": 390757
+  },
+  {
+    "name": "Norway",
+    "size": 386224
+  },
+  {
+    "name": "Japan",
+    "size": 377915
+  },
+  {
+    "name": "Germany",
+    "size": 357022
+  },
+  {
+    "name": "Republic of the Congo",
+    "size": 342000
+  },
+  {
+    "name": "Finland",
+    "size": 338424
+  },
+  {
+    "name": "Vietnam",
+    "size": 331212
+  },
+  {
+    "name": "Malaysia",
+    "size": 329847
+  },
+  {
+    "name": "Norway (mainland)",
+    "size": 323802
+  },
+  {
+    "name": "Ivory Coast",
+    "size": 322463
+  },
+  {
+    "name": "Poland",
+    "size": 312696
+  },
+  {
+    "name": "Oman",
+    "size": 309500
+  },
+  {
+    "name": "Italy",
+    "size": 301339
+  },
+  {
+    "name": "Philippines",
+    "size": 300000
+  },
+  {
+    "name": "Ecuador",
+    "size": 276841
+  },
+  {
+    "name": "Burkina Faso",
+    "size": 274222
+  },
+  {
+    "name": "New Zealand",
+    "size": 268838
+  },
+  {
+    "name": "Gabon",
+    "size": 267667
+  },
+  {
+    "name": "Sahrawi Arab Democratic Republic",
+    "size": 266000
+  },
+  {
+    "name": "Guinea",
+    "size": 245857
+  },
+  {
+    "name": "United Kingdom",
+    "size": 242495
+  },
+  {
+    "name": "Uganda",
+    "size": 241550
+  },
+  {
+    "name": "Ghana",
+    "size": 238533
+  },
+  {
+    "name": "Romania",
+    "size": 238397
+  },
+  {
+    "name": "Laos",
+    "size": 236800
+  },
+  {
+    "name": "Guyana",
+    "size": 214969
+  },
+  {
+    "name": "Belarus",
+    "size": 207600
+  },
+  {
+    "name": "Kyrgyzstan",
+    "size": 199951
+  },
+  {
+    "name": "Senegal",
+    "size": 196722
+  },
+  {
+    "name": "Syria",
+    "size": 185180
+  },
+  {
+    "name": "Cambodia",
+    "size": 181035
+  },
+  {
+    "name": "Uruguay",
+    "size": 176215
+  },
+  {
+    "name": "Somaliland",
+    "size": 176120
+  },
+  {
+    "name": "Suriname",
+    "size": 163820
+  },
+  {
+    "name": "Tunisia",
+    "size": 163610
+  },
+  {
+    "name": "Bangladesh",
+    "size": 147570
+  },
+  {
+    "name": "Nepal",
+    "size": 147181
+  },
+  {
+    "name": "Tajikistan",
+    "size": 143100
+  },
+  {
+    "name": "Greece",
+    "size": 131957
+  },
+  {
+    "name": "Nicaragua",
+    "size": 130370
+  },
+  {
+    "name": "North Korea",
+    "size": 120540
+  },
+  {
+    "name": "Malawi",
+    "size": 118484
+  },
+  {
+    "name": "Eritrea",
+    "size": 117600
+  },
+  {
+    "name": "Benin",
+    "size": 114763
+  },
+  {
+    "name": "Honduras",
+    "size": 112492
+  },
+  {
+    "name": "Liberia",
+    "size": 111369
+  },
+  {
+    "name": "Bulgaria",
+    "size": 111002
+  },
+  {
+    "name": "Cuba",
+    "size": 110860
+  },
+  {
+    "name": "Guatemala",
+    "size": 108889
+  },
+  {
+    "name": "Iceland",
+    "size": 103000
+  },
+  {
+    "name": "South Korea",
+    "size": 100210
+  },
+  {
+    "name": "Puntland",
+    "size": 97757
+  },
+  {
+    "name": "Hungary",
+    "size": 93028
+  },
+  {
+    "name": "Portugal",
+    "size": 92090
+  },
+  {
+    "name": "Jordan",
+    "size": 89342
+  },
+  {
+    "name": "Serbia",
+    "size": 88361
+  },
+  {
+    "name": "Azerbaijan",
+    "size": 86600
+  },
+  {
+    "name": "Austria",
+    "size": 83871
+  },
+  {
+    "name": "United Arab Emirates",
+    "size": 83600
+  },
+  {
+    "name": "French Guiana (France)",
+    "size": 83534
+  },
+  {
+    "name": "Czech Republic",
+    "size": 78867
+  },
+  {
+    "name": "Panama",
+    "size": 75417
+  },
+  {
+    "name": "Sierra Leone",
+    "size": 71740
+  },
+  {
+    "name": "Ireland",
+    "size": 70273
+  },
+  {
+    "name": "Georgia",
+    "size": 69700
+  },
+  {
+    "name": "Sri Lanka",
+    "size": 65610
+  },
+  {
+    "name": "Lithuania",
+    "size": 65300
+  },
+  {
+    "name": "Latvia",
+    "size": 64559
+  },
+  {
+    "name": "Svalbard (Norway)",
+    "size": 62045
+  },
+  {
+    "name": "Togo",
+    "size": 56785
+  },
+  {
+    "name": "Croatia",
+    "size": 56594
+  },
+  {
+    "name": "Bosnia and Herzegovina",
+    "size": 51209
+  },
+  {
+    "name": "Costa Rica",
+    "size": 51100
+  },
+  {
+    "name": "Slovakia",
+    "size": 49037
+  },
+  {
+    "name": "Dominican Republic",
+    "size": 48671
+  },
+  {
+    "name": "Estonia",
+    "size": 45227
+  },
+  {
+    "name": "Netherlands",
+    "size": 41850
+  },
+  {
+    "name": "Switzerland",
+    "size": 41284
+  },
+  {
+    "name": "Bhutan",
+    "size": 38394
+  },
+  {
+    "name": "Taiwan",
+    "size": 36193
+  },
+  {
+    "name": "Guinea-Bissau",
+    "size": 36125
+  },
+  {
+    "name": "Moldova",
+    "size": 33851
+  },
+  {
+    "name": "Belgium",
+    "size": 30528
+  },
+  {
+    "name": "Lesotho",
+    "size": 30355
+  },
+  {
+    "name": "Armenia",
+    "size": 29743
+  },
+  {
+    "name": "Solomon Islands",
+    "size": 28896
+  },
+  {
+    "name": "Albania",
+    "size": 28748
+  },
+  {
+    "name": "Equatorial Guinea",
+    "size": 28051
+  },
+  {
+    "name": "Burundi",
+    "size": 27834
+  },
+  {
+    "name": "Haiti",
+    "size": 27750
+  },
+  {
+    "name": "Rwanda",
+    "size": 26338
+  },
+  {
+    "name": "North Macedonia",
+    "size": 25713
+  },
+  {
+    "name": "Djibouti",
+    "size": 23200
+  },
+  {
+    "name": "Belize",
+    "size": 22966
+  },
+  {
+    "name": "Israel",
+    "size": 22072
+  },
+  {
+    "name": "El Salvador",
+    "size": 21041
+  },
+  {
+    "name": "Slovenia",
+    "size": 20273
+  },
+  {
+    "name": "New Caledonia (France)",
+    "size": 18575
+  },
+  {
+    "name": "Fiji",
+    "size": 18274
+  },
+  {
+    "name": "Kuwait",
+    "size": 17818
+  },
+  {
+    "name": "Eswatini",
+    "size": 17364
+  },
+  {
+    "name": "East Timor",
+    "size": 14919
+  },
+  {
+    "name": "The Bahamas",
+    "size": 13943
+  },
+  {
+    "name": "Montenegro",
+    "size": 13812
+  },
+  {
+    "name": "Vanuatu",
+    "size": 12189
+  },
+  {
+    "name": "Falkland Islands (United Kingdom)",
+    "size": 12173
+  },
+  {
+    "name": "Qatar",
+    "size": 11586
+  },
+  {
+    "name": "The Gambia",
+    "size": 11295
+  },
+  {
+    "name": "Jamaica",
+    "size": 10991
+  },
+  {
+    "name": "Kosovo",
+    "size": 10887
+  },
+  {
+    "name": "Lebanon",
+    "size": 10452
+  },
+  {
+    "name": "Cyprus",
+    "size": 9251
+  },
+  {
+    "name": "Puerto Rico (United States)",
+    "size": 9104
+  },
+  {
+    "name": "Bougainville",
+    "size": 8800
+  },
+  {
+    "name": "Abkhazia",
+    "size": 8660
+  },
+  {
+    "name": "United States Minor Outlying Islands",
+    "size": 6959
+  },
+  {
+    "name": "Palestine",
+    "size": 6020
+  },
+  {
+    "name": "Brunei",
+    "size": 5765
+  },
+  {
+    "name": "Trinidad and Tobago",
+    "size": 5130
+  },
+  {
+    "name": "French Polynesia (France)",
+    "size": 4167
+  },
+  {
+    "name": "Transnistria",
+    "size": 4163
+  },
+  {
+    "name": "Cape Verde",
+    "size": 4033
+  },
+  {
+    "name": "South Georgia and the South Sandwich Islands (United Kingdom)",
+    "size": 3903
+  },
+  {
+    "name": "South Ossetia",
+    "size": 3900
+  },
+  {
+    "name": "Northern Cyprus",
+    "size": 3355
+  },
+  {
+    "name": "Samoa",
+    "size": 2842
+  },
+  {
+    "name": "Hong Kong (China)",
+    "size": 2746
+  },
+  {
+    "name": "Luxembourg",
+    "size": 2586
+  },
+  {
+    "name": "Réunion (France)",
+    "size": 2512
+  },
+  {
+    "name": "Bir Tawil (Terra nullius)",
+    "size": 2060
+  },
+  {
+    "name": "Mauritius",
+    "size": 2040
+  },
+  {
+    "name": "Comoros",
+    "size": 1862
+  },
+  {
+    "name": "Guadeloupe (France)",
+    "size": 1628
+  },
+  {
+    "name": "Åland Islands (Finland)",
+    "size": 1552
+  },
+  {
+    "name": "Faroe Islands (Denmark)",
+    "size": 1393
+  },
+  {
+    "name": "Martinique (France)",
+    "size": 1128
+  },
+  {
+    "name": "Chatham Islands (New Zealand)",
+    "size": 976
+  },
+  {
+    "name": "São Tomé and Príncipe",
+    "size": 964
+  },
+  {
+    "name": "Turks and Caicos Islands (United Kingdom)",
+    "size": 948
+  },
+  {
+    "name": "Kiribati",
+    "size": 811
+  },
+  {
+    "name": "Bahrain",
+    "size": 778
+  },
+  {
+    "name": "Dominica",
+    "size": 751
+  },
+  {
+    "name": "Tonga",
+    "size": 747
+  },
+  {
+    "name": "Singapore",
+    "size": 716
+  },
+  {
+    "name": "Federated States of Micronesia",
+    "size": 702
+  },
+  {
+    "name": "Saint Lucia",
+    "size": 606
+  },
+  {
+    "name": "Auckland Islands (New Zealand)",
+    "size": 602
+  },
+  {
+    "name": "Isle of Man (United Kingdom)",
+    "size": 572
+  },
+  {
+    "name": "Guam (United States)",
+    "size": 544
+  },
+  {
+    "name": "Andorra",
+    "size": 468
+  },
+  {
+    "name": "Northern Mariana Islands (United States)",
+    "size": 465
+  },
+  {
+    "name": "Palau",
+    "size": 460
+  },
+  {
+    "name": "Seychelles",
+    "size": 452
+  },
+  {
+    "name": "Curaçao (Netherlands)",
+    "size": 444
+  },
+  {
+    "name": "Antigua and Barbuda",
+    "size": 442
+  },
+  {
+    "name": "Barbados",
+    "size": 430
+  },
+  {
+    "name": "Heard Island and McDonald Islands (Australia)",
+    "size": 412
+  },
+  {
+    "name": "Saint Vincent and the Grenadines",
+    "size": 389
+  },
+  {
+    "name": "Jan Mayen (Norway)",
+    "size": 377
+  },
+  {
+    "name": "Mayotte (France)",
+    "size": 374
+  },
+  {
+    "name": "United States Virgin Islands (United States)",
+    "size": 347
+  },
+  {
+    "name": "Grenada",
+    "size": 344
+  },
+  {
+    "name": "Prince Edward Islands (South Africa)",
+    "size": 339
+  },
+  {
+    "name": "Malta",
+    "size": 316
+  },
+  {
+    "name": "Saint Helena, Ascension and Tristan da Cunha (United Kingdom)",
+    "size": 308
+  },
+  {
+    "name": "Maldives",
+    "size": 300
+  },
+  {
+    "name": "Bonaire (Netherlands)",
+    "size": 288
+  },
+  {
+    "name": "Cayman Islands (United Kingdom)",
+    "size": 264
+  },
+  {
+    "name": "Saint Kitts and Nevis",
+    "size": 261
+  },
+  {
+    "name": "Niue",
+    "size": 260
+  },
+  {
+    "name": "Akrotiri and Dhekelia (United Kingdom)",
+    "size": 253
+  },
+  {
+    "name": "Saint Pierre and Miquelon (France)",
+    "size": 242
+  },
+  {
+    "name": "Cook Islands",
+    "size": 236
+  },
+  {
+    "name": "American Samoa (United States)",
+    "size": 199
+  },
+  {
+    "name": "Marshall Islands",
+    "size": 181
+  },
+  {
+    "name": "Aruba (Netherlands)",
+    "size": 180
+  },
+  {
+    "name": "Easter Island (Chile)",
+    "size": 163
+  },
+  {
+    "name": "Liechtenstein",
+    "size": 160
+  },
+  {
+    "name": "Peter I Island (Norway)",
+    "size": 154
+  },
+  {
+    "name": "British Virgin Islands (United States)",
+    "size": 151
+  },
+  {
+    "name": "Wallis and Futuna (France)",
+    "size": 142
+  },
+  {
+    "name": "[[File:{{{flag alias}}}|23x15px|border |alt=|link=]] Macquarie Island (Australia)",
+    "size": 140
+  },
+  {
+    "name": "Christmas Island (Australia)",
+    "size": 135
+  },
+  {
+    "name": "Jersey (United Kingdom)",
+    "size": 116
+  },
+  {
+    "name": "[[File:|23x15px|border |alt=|link=]] Campbell Islands (New Zealand)",
+    "size": 112
+  },
+  {
+    "name": "Montserrat (United Kingdom)",
+    "size": 102
+  },
+  {
+    "name": "Anguilla (United Kingdom)",
+    "size": 91
+  },
+  {
+    "name": "Guernsey (United Kingdom)",
+    "size": 78
+  },
+  {
+    "name": "San Marino",
+    "size": 61
+  },
+  {
+    "name": "British Indian Ocean Territory (United Kingdom)",
+    "size": 60
+  },
+  {
+    "name": "Saint Martin (France)",
+    "size": 54
+  },
+  {
+    "name": "Bermuda (United Kingdom)",
+    "size": 54
+  },
+  {
+    "name": "San Andrés y Providencia (Colombia)",
+    "size": 52
+  },
+  {
+    "name": "Bouvet Island (Norway)",
+    "size": 50
+  },
+  {
+    "name": "Pitcairn Islands (United Kingdom)",
+    "size": 47
+  },
+  {
+    "name": "Norfolk Island (Australia)",
+    "size": 40
+  },
+  {
+    "name": "Sint Maarten (Netherlands)",
+    "size": 34
+  },
+  {
+    "name": "Kermadec Islands (New Zealand)",
+    "size": 32
+  },
+  {
+    "name": "Macau (China)",
+    "size": 30
+  },
+  {
+    "name": "Tuvalu",
+    "size": 26
+  },
+  {
+    "name": "Antipodes Islands (New Zealand)",
+    "size": 23
+  },
+  {
+    "name": "Nauru",
+    "size": 21
+  },
+  {
+    "name": "Saint Barthélemy (France)",
+    "size": 21
+  },
+  {
+    "name": "Sint Eustatius (Netherlands)",
+    "size": 21
+  },
+  {
+    "name": "Ceuta (Spain)",
+    "size": 19
+  },
+  {
+    "name": "Cocos (Keeling) Islands (Australia)",
+    "size": 14
+  },
+  {
+    "name": "Saba (Netherlands)",
+    "size": 13
+  },
+  {
+    "name": "Melilla (Spain)",
+    "size": 12
+  },
+  {
+    "name": "Tokelau (New Zealand)",
+    "size": 12
+  },
+  {
+    "name": "Paracel Islands (disputed)",
+    "size": 7
+  },
+  {
+    "name": "Gibraltar (United Kingdom)",
+    "size": 7
+  },
+  {
+    "name": "Alderney (United Kingdom)",
+    "size": 6
+  },
+  {
+    "name": "Clipperton (France)",
+    "size": 6
+  },
+  {
+    "name": "Ashmore and Cartier Islands (Australia)",
+    "size": 5
+  },
+  {
+    "name": "Spratly Islands (disputed)",
+    "size": 5
+  },
+  {
+    "name": "[[File:|23x15px|border |alt=|link=]] Snares Islands (New Zealand)",
+    "size": 4
+  },
+  {
+    "name": "Gornja Siga (terra nullius)",
+    "size": 4
+  },
+  {
+    "name": "Three Kings Islands (New Zealand)",
+    "size": 3
+  },
+  {
+    "name": "Coral Sea Islands (Australia)",
+    "size": 3
+  },
+  {
+    "name": "Monaco",
+    "size": 2.02
+  },
+  {
+    "name": "Vatican City",
+    "size": 0.44
+  },
+];
+
+
+
+export default function Home() {
+  const [currentCountry, setCurrentCountry] = useState(null);
+  const [nextCountry, setNextCountry] = useState(null);
+  const [score, setScore] = useState(0);
+  const [gameOver, setGameOver] = useState(false);
+
+  // Function to get a random country from the list
+  const getRandomCountry = () => {
+    const randomIndex = Math.floor(Math.random() * countries.length);
+    return countries[randomIndex];
+  };
+
+  // Initialize game with two random countries
+  const startGame = () => {
+    setCurrentCountry(getRandomCountry());
+    setNextCountry(getRandomCountry());
+  };
+
+  // Handle the user's guess
+  const handleAnswer = (isHigher) => {
+    if (gameOver) return;
+
+    const isCorrect =
+      (isHigher && nextCountry.size > currentCountry.size) ||
+      (!isHigher && nextCountry.size < currentCountry.size);
+
+    if (isCorrect) {
+      setScore(score + 1);
+      setCurrentCountry(nextCountry);
+      setNextCountry(getRandomCountry());
+    } else {
+      setGameOver(true);
+    }
+  };
+
+  // Use effect to trigger startGame on the client side
+  useEffect(() => {
+    if (!currentCountry && !nextCountry) {
+      startGame();
+    }
+  }, [currentCountry, nextCountry]);
+
+  return (
+    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-br from-black to-gray-950 text-white">
+      <div className="text-center mb-[20vh]">
+        <h1 className="text-6xl font-bold mb-8">Country Size: <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-500 to-blue-500">Higher</span> or <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-600 via-red-500 to-purple-500">Lower</span>?</h1>
+        {gameOver ? (
+          <div className="game-over">
+            <h2 className="text-2xl mb-4">Game Over!</h2>
+            <p className="text-4xl">Your Score: {score}</p>
+          <div className="answer">
+          <h3 className="text-5xl my-4">{nextCountry?.name} is : {nextCountry?.size.toLocaleString()}Km<sup>2</sup></h3>
+          </div>
+            <button
+              onClick={() => window.location.reload()}
+              className="mt-4 px-6 py-2 bg-gradient-to-r from-blue-400 via-violet-600 to-blue-700 text-white rounded-lg hover:bg-blue-400"
+            >
+              Play Again
+            </button>
+          </div>
+        ) : (
+          <div className="game flex justify-between items-center mt-[24vh]  w-full max-w-8xl mx-auto p-4">
+            {/* Left Section: Current Country */}
+            <div className="current-country w-1/2 text-gray-100 text-center">
+              <p className="font-bold text-5xl">{currentCountry?.name}</p>
+              <p className="text-2xl pt-4 ">{currentCountry?.size.toLocaleString()} Km<sup>2</sup> </p>
+            </div>
+
+            {/* Divider Line */}
+            <div className="divider w-1 px-2 bg-white"></div>
+
+            {/* Right Section: Next Country */}
+            <div className="next-country w-1/2 text-gray-100 text-center">
+              <p className="font-bold text-5xl">{nextCountry?.name}</p>
+              <p className="text-2xl pt-4">&nbsp;</p>
+            </div>
+          </div>
+        )}
+
+        {!gameOver && (
+          <div className="choices flex justify-center gap-4 mt-8">
+            <button
+              onClick={() => handleAnswer(true)}
+              className="px-6 py-3 bg-gradient-to-r from-emerald-500 to-blue-500  text-white rounded-lg hover:bg-green-400"
+            >
+              Higher
+            </button>
+            <button
+              onClick={() => handleAnswer(false)}
+              className="px-6 py-3 bg-gradient-to-r from-red-600 via-red-500 to-violet-500 text-white rounded-lg hover:bg-red-400"
+            >
+              Lower
+            </button>
+          </div>
+        )}
+      </div>
+    </main>
+  );
+}
