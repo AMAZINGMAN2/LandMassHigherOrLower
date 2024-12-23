@@ -635,10 +635,6 @@ const countries = [
     "size": 22966
   },
   {
-    "name": "Israel",
-    "size": 22072
-  },
-  {
     "name": "El Salvador",
     "size": 21041
   },
@@ -724,7 +720,7 @@ const countries = [
   },
   {
     "name": "Palestine",
-    "size": 6020
+    "size": 28029
   },
   {
     "name": "Brunei",

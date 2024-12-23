@@ -5,7 +5,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Higher or Lower",
-  description: "Higher or Lower Population Game",
+  description: "Higher or Lower Country Landmass Game",
 };
 
 export default function RootLayout({ children }) {
