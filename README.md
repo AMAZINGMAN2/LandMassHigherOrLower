@@ -1,4 +1,4 @@
-# Higher or Lower Country Population Game
+# Higher or Lower Country Landmass Game
 
 Welcome to the **Higher or Lower Country Landmass** game! You can Play this game by going to [https://higherorlowerlandmass.pages.dev](https://higherorlowerlandmass.pages.dev) This is a fun web app where users guess whether the population of the next country is higher or lower than the current one. It’s built using **Next.js 14** and hosted on **Cloudflare**.
 
