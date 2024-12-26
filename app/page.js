@@ -51,7 +51,7 @@ const countries = [
     "size": 2210573
   },
   {
-    "name": "Greenland (Denmark)",
+    "name": "Greenland",
     "size": 2166086
   },
   {
@@ -81,10 +81,6 @@ const countries = [
   {
     "name": "Iran",
     "size": 1648195
-  },
-  {
-    "name": "Marie Byrd Land (terra nullius)",
-    "size": 1600000
   },
   {
     "name": "Mongolia",
@@ -207,10 +203,6 @@ const countries = [
     "size": 580367
   },
   {
-    "name": "France (metropolitan)",
-    "size": 551500
-  },
-  {
     "name": "Yemen",
     "size": 527968
   },
@@ -245,10 +237,6 @@ const countries = [
   {
     "name": "Morocco",
     "size": 446550
-  },
-  {
-    "name": "French Southern and Antarctic Lands (France)",
-    "size": 439781
   },
   {
     "name": "Iraq",
@@ -291,10 +279,6 @@ const countries = [
     "size": 329847
   },
   {
-    "name": "Norway (mainland)",
-    "size": 323802
-  },
-  {
     "name": "Ivory Coast",
     "size": 322463
   },
@@ -329,10 +313,6 @@ const countries = [
   {
     "name": "Gabon",
     "size": 267667
-  },
-  {
-    "name": "Sahrawi Arab Democratic Republic",
-    "size": 266000
   },
   {
     "name": "Guinea",
@@ -463,10 +443,6 @@ const countries = [
     "size": 100210
   },
   {
-    "name": "Puntland",
-    "size": 97757
-  },
-  {
     "name": "Hungary",
     "size": 93028
   },
@@ -493,10 +469,6 @@ const countries = [
   {
     "name": "United Arab Emirates",
     "size": 83600
-  },
-  {
-    "name": "French Guiana (France)",
-    "size": 83534
   },
   {
     "name": "Czech Republic",
@@ -529,14 +501,6 @@ const countries = [
   {
     "name": "Latvia",
     "size": 64559
-  },
-  {
-    "name": "Svalbard (Norway)",
-    "size": 62045
-  },
-  {
-    "name": "Togo",
-    "size": 56785
   },
   {
     "name": "Croatia",
@@ -579,10 +543,6 @@ const countries = [
     "size": 36193
   },
   {
-    "name": "Guinea-Bissau",
-    "size": 36125
-  },
-  {
     "name": "Moldova",
     "size": 33851
   },
@@ -599,20 +559,12 @@ const countries = [
     "size": 29743
   },
   {
-    "name": "Solomon Islands",
-    "size": 28896
-  },
-  {
     "name": "Albania",
     "size": 28748
   },
   {
     "name": "Equatorial Guinea",
     "size": 28051
-  },
-  {
-    "name": "Burundi",
-    "size": 27834
   },
   {
     "name": "Haiti",
@@ -635,16 +587,8 @@ const countries = [
     "size": 22966
   },
   {
-    "name": "El Salvador",
-    "size": 21041
-  },
-  {
     "name": "Slovenia",
     "size": 20273
-  },
-  {
-    "name": "New Caledonia (France)",
-    "size": 18575
   },
   {
     "name": "Fiji",
@@ -659,14 +603,6 @@ const countries = [
     "size": 17364
   },
   {
-    "name": "East Timor",
-    "size": 14919
-  },
-  {
-    "name": "The Bahamas",
-    "size": 13943
-  },
-  {
     "name": "Montenegro",
     "size": 13812
   },
@@ -675,16 +611,8 @@ const countries = [
     "size": 12189
   },
   {
-    "name": "Falkland Islands (United Kingdom)",
-    "size": 12173
-  },
-  {
     "name": "Qatar",
     "size": 11586
-  },
-  {
-    "name": "The Gambia",
-    "size": 11295
   },
   {
     "name": "Jamaica",
@@ -703,22 +631,6 @@ const countries = [
     "size": 9251
   },
   {
-    "name": "Puerto Rico (United States)",
-    "size": 9104
-  },
-  {
-    "name": "Bougainville",
-    "size": 8800
-  },
-  {
-    "name": "Abkhazia",
-    "size": 8660
-  },
-  {
-    "name": "United States Minor Outlying Islands",
-    "size": 6959
-  },
-  {
     "name": "Palestine",
     "size": 28029
   },
@@ -731,48 +643,20 @@ const countries = [
     "size": 5130
   },
   {
-    "name": "French Polynesia (France)",
-    "size": 4167
-  },
-  {
-    "name": "Transnistria",
-    "size": 4163
-  },
-  {
     "name": "Cape Verde",
     "size": 4033
-  },
-  {
-    "name": "South Georgia and the South Sandwich Islands (United Kingdom)",
-    "size": 3903
   },
   {
     "name": "South Ossetia",
     "size": 3900
   },
   {
-    "name": "Northern Cyprus",
-    "size": 3355
-  },
-  {
     "name": "Samoa",
     "size": 2842
   },
   {
-    "name": "Hong Kong (China)",
-    "size": 2746
-  },
-  {
     "name": "Luxembourg",
     "size": 2586
-  },
-  {
-    "name": "Réunion (France)",
-    "size": 2512
-  },
-  {
-    "name": "Bir Tawil (Terra nullius)",
-    "size": 2060
   },
   {
     "name": "Mauritius",
@@ -781,38 +665,6 @@ const countries = [
   {
     "name": "Comoros",
     "size": 1862
-  },
-  {
-    "name": "Guadeloupe (France)",
-    "size": 1628
-  },
-  {
-    "name": "Åland Islands (Finland)",
-    "size": 1552
-  },
-  {
-    "name": "Faroe Islands (Denmark)",
-    "size": 1393
-  },
-  {
-    "name": "Martinique (France)",
-    "size": 1128
-  },
-  {
-    "name": "Chatham Islands (New Zealand)",
-    "size": 976
-  },
-  {
-    "name": "São Tomé and Príncipe",
-    "size": 964
-  },
-  {
-    "name": "Turks and Caicos Islands (United Kingdom)",
-    "size": 948
-  },
-  {
-    "name": "Kiribati",
-    "size": 811
   },
   {
     "name": "Bahrain",
@@ -831,44 +683,8 @@ const countries = [
     "size": 716
   },
   {
-    "name": "Federated States of Micronesia",
-    "size": 702
-  },
-  {
-    "name": "Saint Lucia",
-    "size": 606
-  },
-  {
-    "name": "Auckland Islands (New Zealand)",
-    "size": 602
-  },
-  {
-    "name": "Isle of Man (United Kingdom)",
-    "size": 572
-  },
-  {
-    "name": "Guam (United States)",
-    "size": 544
-  },
-  {
     "name": "Andorra",
     "size": 468
-  },
-  {
-    "name": "Northern Mariana Islands (United States)",
-    "size": 465
-  },
-  {
-    "name": "Palau",
-    "size": 460
-  },
-  {
-    "name": "Seychelles",
-    "size": 452
-  },
-  {
-    "name": "Curaçao (Netherlands)",
-    "size": 444
   },
   {
     "name": "Antigua and Barbuda",
@@ -879,256 +695,36 @@ const countries = [
     "size": 430
   },
   {
-    "name": "Heard Island and McDonald Islands (Australia)",
-    "size": 412
-  },
-  {
     "name": "Saint Vincent and the Grenadines",
     "size": 389
-  },
-  {
-    "name": "Jan Mayen (Norway)",
-    "size": 377
-  },
-  {
-    "name": "Mayotte (France)",
-    "size": 374
-  },
-  {
-    "name": "United States Virgin Islands (United States)",
-    "size": 347
   },
   {
     "name": "Grenada",
     "size": 344
   },
   {
-    "name": "Prince Edward Islands (South Africa)",
-    "size": 339
-  },
-  {
     "name": "Malta",
     "size": 316
-  },
-  {
-    "name": "Saint Helena, Ascension and Tristan da Cunha (United Kingdom)",
-    "size": 308
   },
   {
     "name": "Maldives",
     "size": 300
   },
   {
-    "name": "Bonaire (Netherlands)",
-    "size": 288
-  },
-  {
-    "name": "Cayman Islands (United Kingdom)",
-    "size": 264
-  },
-  {
-    "name": "Saint Kitts and Nevis",
-    "size": 261
-  },
-  {
-    "name": "Niue",
-    "size": 260
-  },
-  {
-    "name": "Akrotiri and Dhekelia (United Kingdom)",
-    "size": 253
-  },
-  {
-    "name": "Saint Pierre and Miquelon (France)",
-    "size": 242
-  },
-  {
-    "name": "Cook Islands",
-    "size": 236
-  },
-  {
-    "name": "American Samoa (United States)",
-    "size": 199
-  },
-  {
     "name": "Marshall Islands",
     "size": 181
-  },
-  {
-    "name": "Aruba (Netherlands)",
-    "size": 180
-  },
-  {
-    "name": "Easter Island (Chile)",
-    "size": 163
   },
   {
     "name": "Liechtenstein",
     "size": 160
   },
   {
-    "name": "Peter I Island (Norway)",
-    "size": 154
-  },
-  {
-    "name": "British Virgin Islands (United States)",
-    "size": 151
-  },
-  {
-    "name": "Wallis and Futuna (France)",
-    "size": 142
-  },
-  {
-    "name": "[[File:{{{flag alias}}}|23x15px|border |alt=|link=]] Macquarie Island (Australia)",
-    "size": 140
-  },
-  {
-    "name": "Christmas Island (Australia)",
-    "size": 135
-  },
-  {
-    "name": "Jersey (United Kingdom)",
-    "size": 116
-  },
-  {
-    "name": "[[File:|23x15px|border |alt=|link=]] Campbell Islands (New Zealand)",
-    "size": 112
-  },
-  {
-    "name": "Montserrat (United Kingdom)",
-    "size": 102
-  },
-  {
-    "name": "Anguilla (United Kingdom)",
-    "size": 91
-  },
-  {
-    "name": "Guernsey (United Kingdom)",
-    "size": 78
-  },
-  {
     "name": "San Marino",
     "size": 61
   },
   {
-    "name": "British Indian Ocean Territory (United Kingdom)",
-    "size": 60
-  },
-  {
-    "name": "Saint Martin (France)",
-    "size": 54
-  },
-  {
-    "name": "Bermuda (United Kingdom)",
-    "size": 54
-  },
-  {
-    "name": "San Andrés y Providencia (Colombia)",
-    "size": 52
-  },
-  {
-    "name": "Bouvet Island (Norway)",
-    "size": 50
-  },
-  {
-    "name": "Pitcairn Islands (United Kingdom)",
-    "size": 47
-  },
-  {
-    "name": "Norfolk Island (Australia)",
-    "size": 40
-  },
-  {
-    "name": "Sint Maarten (Netherlands)",
-    "size": 34
-  },
-  {
-    "name": "Kermadec Islands (New Zealand)",
-    "size": 32
-  },
-  {
-    "name": "Macau (China)",
-    "size": 30
-  },
-  {
     "name": "Tuvalu",
     "size": 26
-  },
-  {
-    "name": "Antipodes Islands (New Zealand)",
-    "size": 23
-  },
-  {
-    "name": "Nauru",
-    "size": 21
-  },
-  {
-    "name": "Saint Barthélemy (France)",
-    "size": 21
-  },
-  {
-    "name": "Sint Eustatius (Netherlands)",
-    "size": 21
-  },
-  {
-    "name": "Ceuta (Spain)",
-    "size": 19
-  },
-  {
-    "name": "Cocos (Keeling) Islands (Australia)",
-    "size": 14
-  },
-  {
-    "name": "Saba (Netherlands)",
-    "size": 13
-  },
-  {
-    "name": "Melilla (Spain)",
-    "size": 12
-  },
-  {
-    "name": "Tokelau (New Zealand)",
-    "size": 12
-  },
-  {
-    "name": "Paracel Islands (disputed)",
-    "size": 7
-  },
-  {
-    "name": "Gibraltar (United Kingdom)",
-    "size": 7
-  },
-  {
-    "name": "Alderney (United Kingdom)",
-    "size": 6
-  },
-  {
-    "name": "Clipperton (France)",
-    "size": 6
-  },
-  {
-    "name": "Ashmore and Cartier Islands (Australia)",
-    "size": 5
-  },
-  {
-    "name": "Spratly Islands (disputed)",
-    "size": 5
-  },
-  {
-    "name": "[[File:|23x15px|border |alt=|link=]] Snares Islands (New Zealand)",
-    "size": 4
-  },
-  {
-    "name": "Gornja Siga (terra nullius)",
-    "size": 4
-  },
-  {
-    "name": "Three Kings Islands (New Zealand)",
-    "size": 3
-  },
-  {
-    "name": "Coral Sea Islands (Australia)",
-    "size": 3
   },
   {
     "name": "Monaco",
