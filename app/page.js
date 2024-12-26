@@ -647,10 +647,6 @@ const countries = [
     "size": 4033
   },
   {
-    "name": "South Ossetia",
-    "size": 3900
-  },
-  {
     "name": "Samoa",
     "size": 2842
   },
@@ -695,10 +691,6 @@ const countries = [
     "size": 430
   },
   {
-    "name": "Saint Vincent and the Grenadines",
-    "size": 389
-  },
-  {
     "name": "Grenada",
     "size": 344
   },
@@ -709,10 +701,6 @@ const countries = [
   {
     "name": "Maldives",
     "size": 300
-  },
-  {
-    "name": "Marshall Islands",
-    "size": 181
   },
   {
     "name": "Liechtenstein",
@@ -783,13 +771,13 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-br from-black to-gray-950 text-white">
       <div className="text-center mb-[20vh]">
-        <h1 className="text-6xl font-bold mb-8">Country Size: <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-500 to-blue-500">Higher</span> or <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-600 via-red-500 to-purple-500">Lower</span>?</h1>
+        <h1 className="text-[5rem] font-bold mb-8">Country Size: <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-500 to-blue-500">Higher</span> or <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-600 via-red-500 to-purple-500">Lower</span>?</h1>
         {gameOver ? (
           <div className="game-over">
             <h2 className="text-2xl mb-4">Game Over!</h2>
             <p className="text-4xl">Your Score: {score}</p>
           <div className="answer">
-          <h3 className="text-5xl my-4">{nextCountry?.name} is : {nextCountry?.size.toLocaleString()}Km<sup>2</sup></h3>
+          <h3 className="text-[4rem] my-4">{nextCountry?.name} is : {nextCountry?.size.toLocaleString()}Km<sup>2</sup></h3>
           </div>
             <button
               onClick={() => window.location.reload()}
@@ -802,7 +790,7 @@ export default function Home() {
           <div className="game flex justify-between items-center mt-[24vh]  w-full max-w-8xl mx-auto p-4">
             {/* Left Section: Current Country */}
             <div className="current-country w-1/2 text-gray-100 text-center">
-              <p className="font-bold text-5xl">{currentCountry?.name}</p>
+              <p className="font-bold text-[4rem]">{currentCountry?.name}</p>
               <p className="text-2xl pt-4 ">{currentCountry?.size.toLocaleString()} Km<sup>2</sup> </p>
             </div>
 
@@ -811,23 +799,23 @@ export default function Home() {
 
             {/* Right Section: Next Country */}
             <div className="next-country w-1/2 text-gray-100 text-center">
-              <p className="font-bold text-5xl">{nextCountry?.name}</p>
+              <p className="font-bold text-[4rem]">{nextCountry?.name}</p>
               <p className="text-2xl pt-4">&nbsp;</p>
             </div>
           </div>
         )}
 
         {!gameOver && (
-          <div className="choices flex justify-center gap-4 mt-8">
+          <div className="choices flex justify-center gap-6 mt-8">
             <button
               onClick={() => handleAnswer(true)}
-              className="px-6 py-3 bg-gradient-to-r from-emerald-500 to-blue-500  text-white rounded-lg hover:bg-green-400"
+              className="px-6 font-black text-[2rem] py-3 bg-gradient-to-r from-emerald-500 to-blue-500 text-white rounded-lg hover:bg-green-400 hover:scale-125 transition-all duration-300 ease-in-out"
             >
               Higher
             </button>
             <button
               onClick={() => handleAnswer(false)}
-              className="px-6 py-3 bg-gradient-to-r from-red-600 via-red-500 to-violet-500 text-white rounded-lg hover:bg-red-400"
+              className="px-6 font-black text-[2rem] py-3 bg-gradient-to-r from-red-600 via-red-500 to-violet-500 text-white rounded-lg hover:bg-red-400 hover:scale-125 transition-all duration-300 ease-in-out"
             >
               Lower
             </button>
