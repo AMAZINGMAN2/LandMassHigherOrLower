@@ -1,6 +1,5 @@
 'use client'
 import { useState, useEffect } from "react";
-
 const countries = [
   {
     "name": "Antarctica",
@@ -724,27 +723,22 @@ const countries = [
   },
 ];
 
-
-
 export default function Home() {
   const [currentCountry, setCurrentCountry] = useState(null);
   const [nextCountry, setNextCountry] = useState(null);
   const [score, setScore] = useState(0);
   const [gameOver, setGameOver] = useState(false);
 
-  // Function to get a random country from the list
   const getRandomCountry = () => {
     const randomIndex = Math.floor(Math.random() * countries.length);
     return countries[randomIndex];
   };
 
-  // Initialize game with two random countries
   const startGame = () => {
     setCurrentCountry(getRandomCountry());
     setNextCountry(getRandomCountry());
   };
 
-  // Handle the user's guess
   const handleAnswer = (isHigher) => {
     if (gameOver) return;
 
@@ -761,7 +755,6 @@ export default function Home() {
     }
   };
 
-  // Use effect to trigger startGame on the client side
   useEffect(() => {
     if (!currentCountry && !nextCountry) {
       startGame();
@@ -769,25 +762,40 @@ export default function Home() {
   }, [currentCountry, nextCountry]);
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-br from-black to-gray-950 text-white">
+    <main className="flex min-h-screen flex-col text-gray-100 select-none items-center justify-center text-white relative">
+      <div className="blur "></div>
+      <div className="absolute inset-0 bg-cover bg-center filter blur-[100px] opacity-50 z-[-1]"></div> {/* Custom blur effect */}
+      
       <div className="text-center mb-[20vh]">
-        <h1 className="text-[5rem] font-bold mb-8">Country Size: <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-500 to-blue-500">Higher</span> or <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-600 via-red-500 to-purple-500">Lower</span>?</h1>
+        <h1 className="text-[5rem] font-bold text-gray-100 select-none mb-8">
+          Country Size:{" "}
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-500 to-blue-500">
+            Higher
+          </span>{" "}
+          or{" "}
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-600 via-red-500 to-purple-500">
+            Lower
+          </span>
+          ?
+        </h1>
         {gameOver ? (
           <div className="game-over">
-            <h2 className="text-2xl mb-4">Game Over!</h2>
-            <p className="text-4xl">Your Score: {score}</p>
-          <div className="answer">
-          <h3 className="text-[4rem] my-4">{nextCountry?.name} is : {nextCountry?.size.toLocaleString()}Km<sup>2</sup></h3>
-          </div>
+            <h2 className="text-3xl mb-4">Game Over!</h2>
+            <p className="text-5xl mb-8">Your Score: {score}</p>
+            <div className="answer">
+              <h3 className="text-[4rem] my-4">
+                {nextCountry?.name} is {nextCountry?.size.toLocaleString()}Km<sup>2</sup>
+              </h3>
+            </div>
             <button
               onClick={() => window.location.reload()}
-              className="mt-4 px-6 py-2 bg-gradient-to-r from-blue-400 via-violet-600 to-blue-700 text-white rounded-lg hover:bg-blue-400"
+              className="font-black text-[2rem] mt-2 px-6 py-18 bg-gradient-to-r from-blue-400 via-violet-600 to-blue-700 text-gray-100 rounded-lg hover:bg-blue-400"
             >
               Play Again
             </button>
           </div>
         ) : (
-          <div className="game flex justify-between items-center mt-[24vh]  w-full max-w-8xl mx-auto p-4">
+          <div className="game flex justify-between items-center mt-[24vh] w-full max-w-8xl mx-auto p-4">
             {/* Left Section: Current Country */}
             <div className="current-country w-1/2 text-gray-100 text-center">
               <p className="font-bold text-[4rem]">{currentCountry?.name}</p>
